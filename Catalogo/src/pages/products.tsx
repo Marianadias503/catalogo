@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import getAllProducts from '../../lib/datocms'; // Ajuste o caminho conforme necessário
 
-// Definindo corretamente a interface Product
 
+//DEFININDO A INTERFACE PRODUCT
 interface Product {
   id: string;
   preco: number | null;
@@ -14,15 +14,15 @@ interface Product {
 
 
 function Products() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[]>([]); //lista para guardar todos os produtos encontrados
+  const [loading, setLoading] = useState<boolean>(true);  //usado para mensagens de carregamento
+  const [error, setError] = useState<string | null>(null); //usado para mensagens de erro
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProducts = async () => { //fetchProduct = busca os produtos 
       try {
-        const data: Product[] = await getAllProducts(); // Tipagem explícita de data
-        setProducts(data);
+        const data: Product[] = await getAllProducts(); // constante data recebe os dados retonados por getAllProducts()
+        setProducts(data); //salva os dados no setProduct
       } catch (err) {
         console.error(err);
         setError('Erro ao carregar produtos');
