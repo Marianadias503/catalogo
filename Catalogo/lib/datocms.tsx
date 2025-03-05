@@ -13,7 +13,7 @@ interface ApiResponse<T> {
 }
  
 async function fetchCmsAPI<T>(query: string ): Promise<T> {
-  //query: string: Este parâmetro é uma string que contém a consulta GraphQL que você deseja executar
+  //query: string: Este parâmetro é uma string que contém a consulta GraphQL que vou executar
  // <T> é um espaço reservado onde indica que quando chamar a função, podemos dizer o tipo de dado que queremos receber de volta
  // Promise<T> : indica que a funçaõ vai retornar uma promessa, e a promessa vai receber o tipo de dados que foi definido quando chama a função
   const res = await fetch(API_URL, { //uso do fetch para fazer requisição http,no caso a url é a API_URL
